@@ -71,8 +71,11 @@ app.post('/mcp', async (req, res) => {
   const server = buildServer();
   const transport = new StreamableHTTPServerTransport({
     sessionIdGenerator: undefined, // stateless
-    enableDnsRebindingProtection: true,
-    allowedHosts: ['*'], // Apify gateway is the only caller; rebinding protection off in-at-home
+    // At home the only caller is Apify's gateway (Bearer-token gated), so the SDK's
+    // DNS-rebinding Host check is redundant and would reject the *.actor host.
+    // Keep it on when NOT at home (local/dev) as defence-in-depth.
+    enableDnsRebindingProtection: !atHome,
+    allowedHosts: atHome ? undefined : ['localhost', '127.0.0.1'],
   });
   res.on('close', () => transport.close());
   await server.connect(transport);
