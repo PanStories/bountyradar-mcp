@@ -4,6 +4,7 @@
 // itself (Standby-safe). DISCIPLINE: stdout carries ONLY JSON-RPC frames from tools;
 // all logs go to stderr.
 import express from 'express';
+import { Actor } from 'apify';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import {
@@ -24,15 +25,19 @@ export const PRICED = {
   subscribe_feed: 'mcp-subscribe',
 };
 
-const atHome = !!(process.env.APIFY_TOKEN || process.env.APIFY_ACTOR_EVENTS || process.env.APIFY_META_ORIGIN);
+// Actor.isAtHome() is the reliable at-home signal (standby sets APIFY_META_ORIGON only).
+const AT_HOME = Actor.isAtHome();
+if (AT_HOME) {
+  await Actor.init(); // must run before Actor.charge(); without it charge() throws and is swallowed
+  console.error('[bountyradar] Apify Actor initialized — pay-per-event billing is ON');
+}
 
 export async function charge(name) {
-  if (!PRICED[name] || !atHome) return;
+  if (!PRICED[name] || !AT_HOME) return;
   try {
-    const { Actor } = await import('apify');
     await Actor.charge({ eventName: PRICED[name] });
   } catch (e) {
-    console.error('[bountyradar] charge skipped:', e.message);
+    console.error('[bountyradar] charge failed:', e.message);
   }
 }
 
@@ -74,8 +79,8 @@ app.post('/mcp', async (req, res) => {
     // At home the only caller is Apify's gateway (Bearer-token gated), so the SDK's
     // DNS-rebinding Host check is redundant and would reject the *.actor host.
     // Keep it on when NOT at home (local/dev) as defence-in-depth.
-    enableDnsRebindingProtection: !atHome,
-    allowedHosts: atHome ? undefined : ['localhost', '127.0.0.1'],
+    enableDnsRebindingProtection: !AT_HOME,
+    allowedHosts: AT_HOME ? undefined : ['localhost', '127.0.0.1'],
   });
   res.on('close', () => transport.close());
   await server.connect(transport);
@@ -85,14 +90,6 @@ app.get('/mcp', async (_req, res) => { res.status(405).json({ error: 'Method not
 
 // Start the HTTP server (Standby-safe: main process binds the port itself).
 export async function startServer() {
-  if (atHome) {
-    try {
-      const { Actor } = await import('apify');
-      await Actor.init();
-    } catch (e) {
-      console.error('[bountyradar] Actor.init skipped:', e.message);
-    }
-  }
   const port = Number(process.env.ACTOR_WEB_SERVER_PORT || process.env.APIFY_CONTAINER_PORT || process.env.PORT || 8000);
-  app.listen(port, () => console.error(`[bountyradar] http listening on ${port}`));
+  app.listen(port, () => console.error(`[bountyradar] http listening on ${port} (atHome=${AT_HOME})`));
 }
