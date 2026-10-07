@@ -1,0 +1,17 @@
+{
+  "id": "curated-001",
+  "title": "Research: benchmark 3 vector-DB options for <1M embeddings",
+  "source": "curated",
+  "url": "https://bountyradar.mcp/curated/001",
+  "repo": "internal/rag-platform",
+  "task_type": "research",
+  "reward_usd": 90,
+  "posted_at": "2026-09-22T09:30:00Z",
+  "updated_at": "2026-09-29T15:00:00Z",
+  "competition_count": 0,
+  "agent_solvable": 0.50,
+  "difficulty": "medium",
+  "language": "Python",
+  "tags": ["research", "benchmark", "vector-db", "rag"],
+  "description": "Editorial task: produce a benchmark comparing pgvector, Qdrant, and LanceDB on recall@10 and latency for <1M embeddings. Human-in-the-loop review."
+}

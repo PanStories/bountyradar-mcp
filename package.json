@@ -1,0 +1,26 @@
+{
+  "name": "bountyradar-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that aggregates AI-agent-solvable bounties and serves a ranked, scored, agent-consumable feed (Pay-Per-Event on Apify).",
+  "type": "module",
+  "bin": { "bountyradar-mcp": "src/server.mjs" },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test",
+    "smoke": "node scripts/mcp-smoke.mjs",
+    "showcase": "node scripts/showcase.mjs",
+    "refresh": "node scripts/refresh.mjs",
+    "apify:login": "apify login",
+    "apify:validate": "apify actor validate",
+    "apify:push": "apify actor push"
+  },
+  "engines": { "node": ">=22" },
+  "optionalDependencies": {
+    "express": "^4.21.0",
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "apify": "^3.2.0"
+  },
+  "keywords": ["mcp", "bounty", "agent", "ai", "feed", "alerting"],
+  "license": "MIT",
+  "author": "PanStories"
+}

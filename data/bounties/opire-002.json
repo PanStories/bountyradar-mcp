@@ -1,0 +1,17 @@
+{
+  "id": "opire-002",
+  "title": "Add Vitest unit tests for date-range utility (edge cases)",
+  "source": "opire",
+  "url": "https://opire.dev/b/opire-002",
+  "repo": "momenty/date-utils",
+  "task_type": "test",
+  "reward_usd": 200,
+  "posted_at": "2026-10-01T13:00:00Z",
+  "updated_at": "2026-10-06T06:00:00Z",
+  "competition_count": 3,
+  "agent_solvable": 0.80,
+  "difficulty": "easy",
+  "language": "TypeScript",
+  "tags": ["test", "vitest", "edge-cases", "dates"],
+  "description": "Cover DST transitions, leap years, and timezone boundaries in the date-range helper. 3 competitors already — move quickly."
+}

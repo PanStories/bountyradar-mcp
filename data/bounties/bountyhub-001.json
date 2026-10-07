@@ -1,0 +1,17 @@
+{
+  "id": "bountyhub-001",
+  "title": "Raise unit-test coverage of auth module from 61% to 90%",
+  "source": "bountyhub",
+  "url": "https://bountyhub.dev/b/bountyhub-001",
+  "repo": "orbital/auth-core",
+  "task_type": "test",
+  "reward_usd": 180,
+  "posted_at": "2026-09-20T11:00:00Z",
+  "updated_at": "2026-10-01T08:15:00Z",
+  "competition_count": 0,
+  "agent_solvable": 0.82,
+  "difficulty": "easy",
+  "language": "TypeScript",
+  "tags": ["test", "coverage", "jest", "auth"],
+  "description": "Add Jest unit tests for token refresh, refresh-token rotation, and revocation paths. No behavior changes."
+}

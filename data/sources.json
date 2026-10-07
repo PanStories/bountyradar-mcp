@@ -1,0 +1,11 @@
+{
+  "sources": [
+    { "name": "opire", "label": "Opire", "url": "https://opire.dev", "status": "curated", "scrape_method": "apify_actor", "notes": "12,237 repos, 4% fee, ~$54,959 open" },
+    { "name": "bountyhub", "label": "BountyHub", "url": "https://bountyhub.dev", "status": "curated", "scrape_method": "apify_actor" },
+    { "name": "clawhunt", "label": "ClawHunt (爪寻)", "url": "https://clawhunt.com", "status": "partner_candidate", "scrape_method": "upstream_api_pending", "notes": "Marketplace/settlement layer — partner, not competitor" },
+    { "name": "algora", "label": "Algora", "url": "https://algora.io", "status": "curated", "scrape_method": "apify_actor" },
+    { "name": "github", "label": "GitHub Issues", "url": "https://github.com", "status": "curated", "scrape_method": "github_api" },
+    { "name": "hackerone_valid", "label": "HackerOne (validated)", "url": "https://hackerone.com", "status": "curated_opt_in", "scrape_method": "manual_review", "notes": "Index only; never encourage agent spam (ToS + reputation)" },
+    { "name": "curated", "label": "Editorial Curated", "url": "", "status": "curated", "scrape_method": "human" }
+  ]
+}

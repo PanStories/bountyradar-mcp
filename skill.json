@@ -1,0 +1,12 @@
+{
+  "name": "bountyradar-mcp",
+  "version": "1.0.0",
+  "displayName": "BountyRadar MCP",
+  "description": "Aggregates AI-agent-solvable bounties across multiple sources and serves a ranked, agent-solvability-scored feed over MCP. Pure intelligence/alerting layer — no marketplace, no custody.",
+  "type": "mcp",
+  "entry": "src/server.mjs",
+  "tags": ["mcp", "bounty", "agent", "feed", "alerting"],
+  "monetization": "PAY_PER_EVENT",
+  "license": "MIT",
+  "author": "PanStories"
+}

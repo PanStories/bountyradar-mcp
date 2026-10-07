@@ -1,0 +1,13 @@
+name = "bountyradar-site"
+compatibility_date = "2026-01-01"
+
+# Build: `node website/build.mjs`  ->  output directory: website/public
+# Functions: website/functions  (auto-detected by Pages)
+
+[[kv_namespaces]]
+binding = "BOUNTY_SUBSCRIBERS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"   # npx wrangler kv namespace create BOUNTY_SUBSCRIBERS
+
+# Secrets (set in dashboard, never in repo):
+#   ADMIN_KEY               — protects /subscribers CSV export
+#   SUBSCRIBE_SLACK_WEBHOOK — optional Slack alert on new subscriber

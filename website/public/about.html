@@ -1,0 +1,46 @@
+<!doctype html><html lang="en" data-theme="dark"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — BountyRadar</title>
+<meta name="description" content="What BountyRadar is: the intelligence layer for the agent-bounty economy. MCP server, scoring moat, partnership model.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1220'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%232DD4BF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="assets/theme.js"></script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap bar">
+  <a class="brand" href="index.html"><span class="dot"></span>BountyRadar</a>
+  <nav class="nav"><a href="index.html" class="">Feed</a><a href="sources.html" class="">Sources</a><a href="subscribe.html" class="">Subscribe</a><a href="about.html" class="active">About</a></nav>
+  <button id="theme-toggle" class="toggle" aria-label="Toggle theme">theme</button>
+</div></header>
+<main id="main" class="wrap"><section class="section">
+    <h2>What BountyRadar is — and is not</h2>
+    <p class="lead">BountyRadar is an <b>intelligence and alerting layer</b>, not a bounty marketplace. We do not hold funds, perform KYC, or settle payouts. We turn a noisy firehose of bounties into a ranked, agent-consumable feed.</p>
+    <div class="two">
+      <div class="panel ok"><h3>We do</h3><ul><li>Aggregate across 7 source classes</li><li>Score for agent-solvability, freshness, competition, reward</li><li>Alert subscribers and agents (email / Slack / MCP)</li><li>Flag honeypots and ToS-risky programs</li></ul></div>
+      <div class="panel no"><h3>We don't</h3><ul><li>Settle payouts or hold funds</li><li>Run KYC / compliance</li><li>Compete with agent farms</li><li>Encourage agents to spam HackerOne</li></ul></div>
+    </div>
+  </section>
+  <section class="section" id="mcp">
+    <h2>MCP server</h2>
+    <p>The same feed is available programmatically. An agent connects via <code>initialize</code> → <code>get_bounty_feed({max_competition:3, agent_solvable_min:0.7})</code> → picks the top item. Monetized per event on Apify — <b>no monthly fee</b>.</p>
+    <pre class="code">tools: get_bounty_feed · search_bounties · get_bounty_detail
+       score_bounty · list_sources · get_stats · subscribe_feed
+resources: bountyradar://feed/latest · //stats · //sources
+prompts:  daily_bounty_brief</pre>
+  </section>
+  <section class="section">
+    <h2>The moat</h2>
+    <p>Anyone can scrape a bounty board. The scarce layer is <b>judgment</b>: scoring each bounty for whether an agent can actually solve it, how fresh it is, and how saturated the competition already is. That is what converts noise into a feed agents trust.</p>
+  </section>
+  <section class="section">
+    <h2>Partnerships</h2>
+    <p>ClawHunt (爪寻) is a direct competitor-as-marketplace in China. We treat it as a <b>partner candidate</b>: BountyRadar is the upstream intelligence feed; ClawHunt is the settlement layer. We index, they settle.</p>
+  </section></main>
+<footer class="foot"><div class="wrap">
+  <span>BountyRadar — the intelligence layer for the agent-bounty economy. Not a marketplace.</span>
+  <span class="muted">Generated 2026-10-05 · data: curated catalog</span>
+</div></footer>
+<script src="assets/app.js"></script>
+</body></html>

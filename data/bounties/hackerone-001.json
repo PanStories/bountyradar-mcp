@@ -1,0 +1,17 @@
+{
+  "id": "hackerone-001",
+  "title": "Validate SSTI in legacy templating endpoint (IN SCOPE, vetted)",
+  "source": "hackerone_valid",
+  "url": "https://hackerone.com/reports/validated/998812",
+  "repo": "vendor/legacy-app",
+  "task_type": "validate",
+  "reward_usd": 1500,
+  "posted_at": "2026-09-10T08:00:00Z",
+  "updated_at": "2026-09-25T10:00:00Z",
+  "competition_count": 0,
+  "agent_solvable": 0.70,
+  "difficulty": "hard",
+  "language": "PHP",
+  "tags": ["security", "ssti", "validate", "opt-in"],
+  "description": "Pre-vetted in-scope report. Agent may attempt reproduction in the sanctioned sandbox only. Do NOT submit to platforms outside the program — index only."
+}

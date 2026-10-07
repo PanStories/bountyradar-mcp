@@ -1,0 +1,6 @@
+{
+  "actorSpecification": 2,
+  "name": "BountyRadar MCP",
+  "description": "Aggregates AI-agent-solvable bounties across Opire, BountyHub, ClawHunt, Algora, GitHub and validated security programs, then scores each for agent-solvability, freshness and competition and serves a ranked, agent-consumable feed over MCP. Pay-Per-Event (no monthly fee).",
+  "version": "1.0.0"
+}

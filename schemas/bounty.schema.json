@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bountyradar.mcp/schemas/bounty.schema.json",
+  "title": "BountyRecord",
+  "description": "Canonical schema for an AI-agent-solvable bounty aggregated by BountyRadar. Single source of truth (SPEC §6).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "source", "url", "task_type", "reward_usd", "posted_at"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9._:-]+$" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 300 },
+    "source": {
+      "type": "string",
+      "enum": ["opire", "bountyhub", "clawhunt", "algora", "github", "hackerone_valid", "curated"]
+    },
+    "source_url": { "type": "string", "format": "uri" },
+    "url": { "type": "string", "format": "uri" },
+    "repo": { "type": "string", "maxLength": 200 },
+    "task_type": {
+      "type": "string",
+      "enum": ["debug", "test", "validate", "feature", "needs_human", "research"]
+    },
+    "reward_usd": { "type": "number", "minimum": 0 },
+    "currency": { "type": "string", "default": "USD", "enum": ["USD", "CNY", "EUR"] },
+    "posted_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "competition_count": { "type": "integer", "minimum": 0, "default": 0 },
+    "agent_solvable": { "type": "number", "minimum": 0, "maximum": 1 },
+    "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+    "language": { "type": "string", "maxLength": 60 },
+    "tags": { "type": "array", "items": { "type": "string", "maxLength": 40 }, "maxItems": 20 },
+    "description": { "type": "string", "maxLength": 2000 },
+    "honeypot": { "type": "boolean", "default": false, "description": "Reserved for SE interview / known trap — flag to protect agent compute" }
+  }
+}

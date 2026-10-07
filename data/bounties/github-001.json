@@ -1,0 +1,17 @@
+{
+  "id": "github-001",
+  "title": "Bug: intermittent 500 on concurrent uploads (race condition)",
+  "source": "github",
+  "url": "https://github.com/loom/uploads/issues/482",
+  "repo": "loom/uploads",
+  "task_type": "debug",
+  "reward_usd": 120,
+  "posted_at": "2026-10-03T16:20:00Z",
+  "updated_at": "2026-10-05T21:00:00Z",
+  "competition_count": 0,
+  "agent_solvable": 0.85,
+  "difficulty": "medium",
+  "language": "JavaScript",
+  "tags": ["bug", "race-condition", "concurrency", "500"],
+  "description": "Under concurrent uploads a shared buffer is reused, causing intermittent 500s. Reproduce with a stress test, then fix with per-request buffers."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "algora-002",
+  "title": "Validate that retry logic handles idempotency keys correctly",
+  "source": "algora",
+  "url": "https://algora.io/b/algora-002",
+  "repo": "flux/payments",
+  "task_type": "validate",
+  "reward_usd": 220,
+  "posted_at": "2026-08-30T10:00:00Z",
+  "updated_at": "2026-09-08T10:00:00Z",
+  "competition_count": 5,
+  "agent_solvable": 0.80,
+  "difficulty": "medium",
+  "language": "Java",
+  "tags": ["validate", "idempotency", "retry", "payments"],
+  "description": "Older bounty (low freshness). Build a test that proves duplicate retries with the same idempotency key do not double-charge. 5 competitors, stale."
+}

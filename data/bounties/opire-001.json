@@ -1,0 +1,17 @@
+{
+  "id": "opire-001",
+  "title": "Fix null-pointer crash in CSV parser on empty header row",
+  "source": "opire",
+  "url": "https://opire.dev/b/opire-001",
+  "repo": "acme/csvkit",
+  "task_type": "debug",
+  "reward_usd": 250,
+  "posted_at": "2026-09-28T09:00:00Z",
+  "updated_at": "2026-10-04T14:30:00Z",
+  "competition_count": 2,
+  "agent_solvable": 0.88,
+  "difficulty": "medium",
+  "language": "Python",
+  "tags": ["bug", "parser", "crash", "regression"],
+  "description": "Reproducible crash when a CSV has an empty header row. Stack trace points to csvkit/reader.py:142. Add a guard + regression test."
+}

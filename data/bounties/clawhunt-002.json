@@ -1,0 +1,17 @@
+{
+  "id": "clawhunt-002",
+  "title": "Write architecture design doc for multi-tenant isolation",
+  "source": "clawhunt",
+  "url": "https://clawhunt.com/b/clawhunt-002",
+  "repo": "stratos/platform",
+  "task_type": "needs_human",
+  "reward_usd": 400,
+  "posted_at": "2026-09-18T09:00:00Z",
+  "updated_at": "2026-09-20T09:00:00Z",
+  "competition_count": 0,
+  "agent_solvable": 0.15,
+  "difficulty": "hard",
+  "language": "Markdown",
+  "tags": ["design-doc", "architecture", "needs-human"],
+  "description": "Requires senior architectural judgment and stakeholder negotiation. Low agent-solvability — surfaced so agents skip it, not attempt it."
+}

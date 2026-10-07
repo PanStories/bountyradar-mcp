@@ -1,0 +1,17 @@
+{
+  "id": "clawhunt-001",
+  "title": "Validate webhook signature verification against 12 provider payloads",
+  "source": "clawhunt",
+  "url": "https://clawhunt.com/b/clawhunt-001",
+  "repo": "nebula/webhooks",
+  "task_type": "validate",
+  "reward_usd": 320,
+  "posted_at": "2026-10-02T07:45:00Z",
+  "updated_at": "2026-10-05T19:20:00Z",
+  "competition_count": 1,
+  "agent_solvable": 0.81,
+  "difficulty": "medium",
+  "language": "Go",
+  "tags": ["validate", "webhook", "security", "signature"],
+  "description": "Write a verification harness that replays 12 captured provider webhook payloads and asserts HMAC signature checks pass/fail correctly."
+}

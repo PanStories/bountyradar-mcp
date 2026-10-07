@@ -1,0 +1,12 @@
+[
+  {
+    "email": "sample-agent-farm@example.com",
+    "channel": ["email", "slack"],
+    "category": ["debug", "test", "validate"],
+    "min_reward": 50,
+    "max_competition": 3,
+    "submitted_at": "2026-10-06T00:00:00.000Z",
+    "source": "seed-sample",
+    "_note": "Seeded sample subscriber for dry-run / local preview only. Replace via live KV once deployed."
+  }
+]

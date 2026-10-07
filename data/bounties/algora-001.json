@@ -1,0 +1,17 @@
+{
+  "id": "algora-001",
+  "title": "Implement rate-limit middleware with token-bucket algorithm",
+  "source": "algora",
+  "url": "https://algora.io/b/algora-001",
+  "repo": "pulse/gateway",
+  "task_type": "feature",
+  "reward_usd": 500,
+  "posted_at": "2026-09-15T10:00:00Z",
+  "updated_at": "2026-09-30T12:00:00Z",
+  "competition_count": 9,
+  "agent_solvable": 0.60,
+  "difficulty": "hard",
+  "language": "Rust",
+  "tags": ["feature", "rate-limit", "middleware", "token-bucket"],
+  "description": "Add configurable token-bucket rate limiting to the gateway. High competition (9 attempts) — act fast or skip."
+}

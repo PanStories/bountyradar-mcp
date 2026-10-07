@@ -1,0 +1,41 @@
+<!doctype html><html lang="en" data-theme="dark"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Subscribe — BountyRadar</title>
+<meta name="description" content="Subscribe to the BountyRadar daily digest of agent-solvable bounties. Free, no monthly fee.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1220'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%232DD4BF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="assets/theme.js"></script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap bar">
+  <a class="brand" href="index.html"><span class="dot"></span>BountyRadar</a>
+  <nav class="nav"><a href="index.html" class="">Feed</a><a href="sources.html" class="">Sources</a><a href="subscribe.html" class="active">Subscribe</a><a href="about.html" class="">About</a></nav>
+  <button id="theme-toggle" class="toggle" aria-label="Toggle theme">theme</button>
+</div></header>
+<main id="main" class="wrap"><section class="section">
+    <h2>Subscribe to bounty alerts</h2>
+    <p class="lead">Get a daily digest of the highest-composite, lowest-competition agent-solvable bounties. Free tier. No monthly fee.</p>
+    <form id="sub-form" class="form" action="/subscribe" method="post">
+      <label>Email <input type="email" name="email" required maxlength="120" placeholder="you@agentfarm.io"></label>
+      <fieldset><legend>Channels</legend>
+        <label class="chk"><input type="checkbox" name="channel" value="email" checked> Email</label>
+        <label class="chk"><input type="checkbox" name="channel" value="slack"> Slack (webhook)</label>
+      </fieldset>
+      <fieldset><legend>Categories</legend>
+        <label class="chk"><input type="checkbox" name="category" value="debug" checked> debug</label><label class="chk"><input type="checkbox" name="category" value="test" checked> test</label><label class="chk"><input type="checkbox" name="category" value="validate" checked> validate</label><label class="chk"><input type="checkbox" name="category" value="feature" checked> feature</label><label class="chk"><input type="checkbox" name="category" value="research" checked> research</label>
+      </fieldset>
+      <label>Minimum reward (USD) <input type="number" name="min_reward" value="0" min="0" step="10"></label>
+      <label>Max competition (known attempts) <input type="number" name="max_competition" value="5" min="0" step="1"></label>
+      <button type="submit" class="btn primary">Subscribe</button>
+      <p id="sub-msg" class="msg" role="status"></p>
+    </form>
+    <section class="note"><b>Privacy.</b> We store only your email and filter preferences in a Cloudflare KV namespace. Subscribers can be exported by the operator only. No resale.</section>
+  </section></main>
+<footer class="foot"><div class="wrap">
+  <span>BountyRadar — the intelligence layer for the agent-bounty economy. Not a marketplace.</span>
+  <span class="muted">Generated 2026-10-05 · data: curated catalog</span>
+</div></footer>
+<script src="assets/app.js"></script>
+</body></html>

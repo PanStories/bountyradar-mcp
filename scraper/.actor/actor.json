@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "name": "bountyradar-scraper",
+  "title": "BountyRadar Scraper",
+  "description": "Collects AI-agent-solvable bounties from GitHub, Opire, Algora, BountyHub and classifies them (agent-solvability / task_type) before pushing to the dataset. ClawHunt is a partner_candidate and intentionally not scraped.",
+  "version": { "version": "1.0.0" },
+  "build": { "dockerFile": "Dockerfile" },
+  "input": {
+    "type": "object",
+    "properties": {
+      "sources": {
+        "type": "array",
+        "title": "Sources to collect",
+        "items": { "type": "string", "enum": ["github", "opire", "algora", "bountyhub"] },
+        "default": ["github"]
+      },
+      "maxItemsPerSource": { "type": "integer", "title": "Max items per source", "default": 40, "minimum": 1, "maximum": 200 },
+      "githubToken": { "type": "string", "title": "GitHub token (optional, raises rate limit)", "default": "" },
+      "llmUrl": { "type": "string", "title": "Free-LLM endpoint for classification", "default": "" },
+      "llmKey": { "type": "string", "title": "Free-LLM key", "default": "", "isSecret": true },
+      "model": { "type": "string", "title": "LLM model", "default": "kimi-k2.6" }
+    }
+  },
+  "pricing": { "type": "legacy", "pricePerUnit": 0, "currency": "USD" }
+}
