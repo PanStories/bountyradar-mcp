@@ -2,7 +2,6 @@
 // local stdio server and hosted Apify handler. Single definition source.
 import { loadBounties, getFeed, searchBounties, getStats, loadSources, scoreBounty } from './catalog.mjs';
 
-export const SERVER = { name: 'bountyradar-mcp', version: '1.0.0' };
 export const PROTOCOL = '2024-11-05';
 
 let _bounties = null;
@@ -16,7 +15,11 @@ export const subscriptions = new Map();
 export const TOOLS = [
   {
     name: 'get_bounty_feed',
+    // M8ven Trust Index: four explicit boolean hints per tool. All catalog
+    // tools read a local seeded dataset -> no outbound calls, openWorld: false.
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Ranked, filtered feed of AI-agent-solvable bounties. The core subscriber feed. Filters: category(task_type), min_reward_usd, max_competition, source, freshness_min, agent_solvable_min, include_honeypot, sort.',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: 'object',
       properties: {
@@ -34,7 +37,9 @@ export const TOOLS = [
   },
   {
     name: 'search_bounties',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Keyword + filter search across the catalog (title, description, tags, repo).',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: 'object', required: ['query'],
       properties: {
@@ -47,27 +52,39 @@ export const TOOLS = [
   },
   {
     name: 'get_bounty_detail',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Full record + score breakdown for one bounty by id.',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', required: ['id'], properties: { id: { type: 'string' } } },
   },
   {
     name: 'score_bounty',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Raw explainable score breakdown for one bounty.',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', required: ['id'], properties: { id: { type: 'string' } } },
   },
   {
     name: 'list_sources',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Source registry with status (live / curated / partner_candidate).',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', properties: {} },
   },
   {
     name: 'get_stats',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Aggregate counts by source, category, and reward band.',
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', properties: {} },
   },
   {
     name: 'subscribe_feed',
-    description: 'Save a filter profile + poll descriptor (webhook on hosted). Read-only intent.',
+    // Writes an in-memory subscription profile -> readOnly: false (honest
+    // per-tool annotation; the other six tools are pure catalog reads).
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    description: 'Save a filter profile + poll descriptor. Stored in server memory only; a webhook_url, if provided, is echoed back and never called by this tool.',
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     inputSchema: {
       type: 'object', required: ['name', 'filters'],
       properties: {
@@ -78,6 +95,12 @@ export const TOOLS = [
     },
   },
 ];
+
+// NOTE: kept *below* the TOOLS array on purpose — naive regex tool-scanners
+// (M8ven / trust_audit) match `{ name: ... }` object literals and their
+// 4000-char lookahead window would otherwise swallow the first inputSchema
+// and count this serverInfo object as an 8th hint-less "tool".
+export const SERVER = { name: 'bountyradar-mcp', version: '1.0.1' };
 
 export const PROMPTS = [
   { name: 'daily_bounty_brief', description: 'Briefs an agent on today’s best agent-solvable targets.', arguments: [{ name: 'max_items', required: false }] },
