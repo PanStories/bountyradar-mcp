@@ -6,6 +6,12 @@
 
 **Languages:** [English](#english) · [简体中文](#简体中文) · [繁體中文](#繁體中文)
 
+| Where it lives | Link |
+|---|---|
+| MCP endpoint | `https://neeenja--bountyradar-mcp.apify.actor/mcp` |
+| Apify Store | https://apify.com/neeenja/bountyradar-mcp |
+| Source (MIT) | https://github.com/PanStories/bountyradar-mcp |
+
 ---
 
 <a id="english"></a>
@@ -46,9 +52,9 @@ claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.api
 #       "headers": { "Authorization": "Bearer <YOUR_APIFY_TOKEN>" } } } }
 ```
 
-### Run locally (stdio, source available on request)
+### Run locally (stdio, MIT — clone and self-host)
 
-The full source (Node 22, zero-dependency stdio server) is available to qualified users on request — the reference repository is kept private. Once you have it:
+The full source (Node 22, zero-dependency stdio server) is MIT-licensed and lives on GitHub: https://github.com/PanStories/bountyradar-mcp. Clone it and run:
 
 ```bash
 node src/server.mjs          # zero-dependency JSON-RPC 2.0 stdio server
@@ -131,7 +137,7 @@ node scripts/refresh.mjs       # refresh catalog (graceful; needs APIFY_TOKEN + 
 
 ### License
 
-Proprietary — source available on request. Free to use the hosted endpoint per the pricing table above.
+MIT — see the [LICENSE](LICENSE) file. Free to use the hosted endpoint per the pricing table above.
 
 ---
 
@@ -177,9 +183,9 @@ claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.api
 #       "headers": { "Authorization": "Bearer <YOUR_APIFY_TOKEN>" } } } }
 ```
 
-### 本地运行（stdio，源码可应要求提供）
+### 本地运行（stdio，MIT 开源，可克隆自托管）
 
-完整源码（Node 22、零依赖 stdio 服务器）可向合资格使用者提供——参考仓库为私有。拿到源码后：
+完整源码（Node 22、零依赖 stdio 服务器）以 MIT 许可证开源在 GitHub：https://github.com/PanStories/bountyradar-mcp。克隆后运行：
 
 ```bash
 node src/server.mjs          # 零依赖 JSON-RPC 2.0 stdio 服务器
@@ -262,7 +268,7 @@ node scripts/refresh.mjs       # 刷新目录（优雅降级；需 APIFY_TOKEN +
 
 ### 许可证
 
-专有——源码可应要求提供。按上表计费使用托管端点。
+MIT——详见 [LICENSE](LICENSE)。按上表计费使用托管端点。
 
 ---
 
@@ -308,9 +314,9 @@ claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.api
 #       "headers": { "Authorization": "Bearer <YOUR_APIFY_TOKEN>" } } } }
 ```
 
-### 本機執行（stdio，原始碼可應要求提供）
+### 本機執行（stdio，MIT 開源，可克隆自架）
 
-完整原始碼（Node 22、零依賴 stdio 伺服器）可向合資格使用者提供——參考倉庫為私有。拿到原始碼後：
+完整原始碼（Node 22、零依賴 stdio 伺服器）以 MIT 許可證開源在 GitHub：https://github.com/PanStories/bountyradar-mcp。克隆後執行：
 
 ```bash
 node src/server.mjs          # 零依賴 JSON-RPC 2.0 stdio 伺服器
@@ -393,4 +399,4 @@ node scripts/refresh.mjs       # 刷新目錄（優雅降級；需 APIFY_TOKEN +
 
 ### 授權
 
-專有——原始碼可應要求提供。按上表計費使用託管端點。
+MIT——詳見 [LICENSE](LICENSE)。按上表計費使用託管端點。
