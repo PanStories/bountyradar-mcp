@@ -36,13 +36,22 @@ The hosted endpoint is a **Streamable HTTP MCP server** with **Pay-Per-Event** b
 
 `initialize` and `tools/list` are **free**; only value events are charged (see Pricing).
 
+No install step and no npm required — the endpoint *is* the product. One-liner for the common clients:
+
+```bash
+claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.apify.actor/mcp
+# Cursor / Windsurf / any client that reads .mcp.json — add:
+#   { "mcpServers": { "bountyradar": { "type": "http",
+#       "url": "https://neeenja--bountyradar-mcp.apify.actor/mcp",
+#       "headers": { "Authorization": "Bearer <YOUR_APIFY_TOKEN>" } } } }
+```
+
 ### Run locally (stdio, source available on request)
 
 The full source (Node 22, zero-dependency stdio server) is available to qualified users on request — the reference repository is kept private. Once you have it:
 
 ```bash
 node src/server.mjs          # zero-dependency JSON-RPC 2.0 stdio server
-npx -y bountyradar-mcp       # (published to npm — see Store listing)
 ```
 
 **MCP client config (local stdio):**
@@ -158,13 +167,22 @@ Proprietary — source available on request. Free to use the hosted endpoint per
 
 `initialize` 与 `tools/list` **免费**；仅对价值事件计费（见「商业化」）。
 
+**无需安装、无需 npm** —— 端点本身就是产品。常见客户端一行搞定：
+
+```bash
+claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.apify.actor/mcp
+# Cursor / Windsurf / 任何读 .mcp.json 的客户端 —— 加入：
+#   { "mcpServers": { "bountyradar": { "type": "http",
+#       "url": "https://neeenja--bountyradar-mcp.apify.actor/mcp",
+#       "headers": { "Authorization": "Bearer <YOUR_APIFY_TOKEN>" } } } }
+```
+
 ### 本地运行（stdio，源码可应要求提供）
 
 完整源码（Node 22、零依赖 stdio 服务器）可向合资格使用者提供——参考仓库为私有。拿到源码后：
 
 ```bash
 node src/server.mjs          # 零依赖 JSON-RPC 2.0 stdio 服务器
-npx -y bountyradar-mcp       # （已发布至 npm——见 Store 上架页）
 ```
 
 **MCP 客户端配置（本地 stdio）：**
@@ -280,13 +298,22 @@ node scripts/refresh.mjs       # 刷新目录（优雅降级；需 APIFY_TOKEN +
 
 `initialize` 與 `tools/list` **免費**；僅對價值事件計費（見「商業化」）。
 
+**無需安裝、無需 npm** —— 端點本身就是產品。常見客戶端一行搞定：
+
+```bash
+claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.apify.actor/mcp
+# Cursor / Windsurf / 任何讀 .mcp.json 的客戶端 —— 加入：
+#   { "mcpServers": { "bountyradar": { "type": "http",
+#       "url": "https://neeenja--bountyradar-mcp.apify.actor/mcp",
+#       "headers": { "Authorization": "Bearer <YOUR_APIFY_TOKEN>" } } } }
+```
+
 ### 本機執行（stdio，原始碼可應要求提供）
 
 完整原始碼（Node 22、零依賴 stdio 伺服器）可向合資格使用者提供——參考倉庫為私有。拿到原始碼後：
 
 ```bash
 node src/server.mjs          # 零依賴 JSON-RPC 2.0 stdio 伺服器
-npx -y bountyradar-mcp       # （已發布至 npm——見 Store 上架頁）
 ```
 
 **MCP 用戶端設定（本機 stdio）：**
