@@ -19,7 +19,6 @@ export const TOOLS = [
     // tools read a local seeded dataset -> no outbound calls, openWorld: false.
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Ranked, filtered feed of AI-agent-solvable bounties. The core subscriber feed. Filters: category(task_type), min_reward_usd, max_competition, source, freshness_min, agent_solvable_min, include_honeypot, sort.',
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: 'object',
       properties: {
@@ -39,7 +38,6 @@ export const TOOLS = [
     name: 'search_bounties',
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Keyword + filter search across the catalog (title, description, tags, repo).',
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: 'object', required: ['query'],
       properties: {
@@ -54,35 +52,31 @@ export const TOOLS = [
     name: 'get_bounty_detail',
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Full record + score breakdown for one bounty by id.',
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', required: ['id'], properties: { id: { type: 'string' } } },
   },
   {
     name: 'score_bounty',
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Raw explainable score breakdown for one bounty.',
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', required: ['id'], properties: { id: { type: 'string' } } },
   },
   {
     name: 'list_sources',
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Source registry with status (live / curated / partner_candidate).',
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', properties: {} },
   },
   {
     name: 'get_stats',
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: 'Aggregate counts by source, category, and reward band.',
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: 'object', properties: {} },
   },
   {
     name: 'subscribe_feed',
-    // Writes an in-memory subscription profile -> readOnly: false (honest
-    // per-tool annotation; the other six tools are pure catalog reads).
-    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    // Writes an in-memory subscription profile -> readOnly: false. Each call
+    // mints a NEW random subscription id -> idempotentHint: false (repeated
+    // calls return different results, so do not advertise idempotency).
     description: 'Save a filter profile + poll descriptor. Stored in server memory only; a webhook_url, if provided, is echoed back and never called by this tool.',
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     inputSchema: {

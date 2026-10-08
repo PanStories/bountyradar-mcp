@@ -1,5 +1,7 @@
 # BountyRadar MCP
 
+[![M8ven Trust Index](https://m8ven.ai/badge/mcp/panstories/bountyradar-mcp)](https://m8ven.ai/mcp/panstories/bountyradar-mcp)
+
 **The judgment layer for the agent-bounty economy.** BountyRadar aggregates AI-agent-solvable bounties across Opire, BountyHub, ClawHunt, Algora, GitHub, and validated security programs — then scores each for **agent-solvability, freshness, and competition** and serves a ranked, agent-consumable feed over MCP.
 
 > **Positioning:** an *intelligence / alerting layer* — **NOT** a marketplace. No fund custody, no KYC, no cross-border settlement. Public OSS bounties are agent-saturated; the scarce skill is *target selection*, not discovery. BountyRadar is the selection layer.
@@ -16,6 +18,8 @@
 
 <a id="english"></a>
 ## English
+
+**Current version: 1.0.1**
 
 ### Why this exists
 
@@ -75,7 +79,7 @@ node src/server.mjs          # zero-dependency JSON-RPC 2.0 stdio server
 | `score_bounty` | Raw explainable score breakdown for one bounty. | $0.0005 |
 | `list_sources` | Source registry + status (live / curated / partner_candidate). | free |
 | `get_stats` | Counts by source / category / reward band. | $0.0005 |
-| `subscribe_feed` | Save a filter profile + poll descriptor (webhook on hosted). | $0.0005 |
+| `subscribe_feed` | Save a filter profile + poll descriptor (stored in server memory; webhook URL echoed, never called). | $0.0005 |
 
 **Resources:** `bountyradar://feed/latest`, `bountyradar://stats`, `bountyradar://sources`
 **Prompt:** `daily_bounty_brief` — briefs an agent on today's best targets.
@@ -144,6 +148,8 @@ MIT — see the [LICENSE](LICENSE) file. Free to use the hosted endpoint per the
 <a id="简体中文"></a>
 ## 简体中文
 
+**Current version: 1.0.1**
+
 **Agent 赏金经济的"判断层"。** BountyRadar 跨 Opire / BountyHub / ClawHunt / Algora / GitHub 及已核验安全计划聚合"AI agent 可解"的赏金，对每条做 **agent 可解性 / 新鲜度 / 竞争度** 评分，并通过 MCP 输出一份排好序、agent 可直接消费的 feed。
 
 > **定位：** *情报 / 告警层*——**不是**市场 / 结算层。不碰资金托管、KYC、跨境结算。公开 OSS 赏金已被 agent 淹没；稀缺能力是"选目标"，不是"发现目标"。BountyRadar 就是这一层。
@@ -206,7 +212,7 @@ node src/server.mjs          # 零依赖 JSON-RPC 2.0 stdio 服务器
 | `score_bounty` | 单条可解释评分拆解。 | $0.0005 |
 | `list_sources` | 来源注册表 + 状态（live / curated / partner_candidate）。 | 免费 |
 | `get_stats` | 按来源 / 类型 / 赏金档统计。 | $0.0005 |
-| `subscribe_feed` | 保存过滤档案 + 轮询描述（托管版带 webhook）。 | $0.0005 |
+| `subscribe_feed` | 保存过滤档案 + 轮询描述（仅存于服务器内存；webhook URL 只回显、绝不调用）。 | $0.0005 |
 
 **资源：** `bountyradar://feed/latest`、`bountyradar://stats`、`bountyradar://sources`
 **提示词：** `daily_bounty_brief`（briefing 今日最佳目标）
@@ -275,6 +281,8 @@ MIT——详见 [LICENSE](LICENSE)。按上表计费使用托管端点。
 <a id="繁體中文"></a>
 ## 繁體中文
 
+**Current version: 1.0.1**
+
 **Agent 賞金經濟的「判斷層」。** BountyRadar 跨 Opire / BountyHub / ClawHunt / Algora / GitHub 及已核驗安全計畫聚合「AI agent 可解」的賞金，對每條做 **agent 可解性 / 新鮮度 / 競爭度** 評分，並透過 MCP 輸出一份排好序、agent 可直接消費的 feed。
 
 > **定位：** *情報 / 警報層*——**不是**市場 / 結算層。不碰資金託管、KYC、跨境結算。公開 OSS 賞金已被 agent 淹沒；稀缺能力是「選目標」，不是「發現目標」。BountyRadar 就是這一層。
@@ -337,7 +345,7 @@ node src/server.mjs          # 零依賴 JSON-RPC 2.0 stdio 伺服器
 | `score_bounty` | 單條可解釋評分拆解。 | $0.0005 |
 | `list_sources` | 來源註冊表 + 狀態（live / curated / partner_candidate）。 | 免費 |
 | `get_stats` | 按來源 / 類型 / 賞金檔統計。 | $0.0005 |
-| `subscribe_feed` | 儲存過濾檔案 + 輪詢描述（託管版帶 webhook）。 | $0.0005 |
+| `subscribe_feed` | 儲存過濾檔案 + 輪詢描述（僅存於伺服器記憶體；webhook URL 僅回顯、絕不呼叫）。 | $0.0005 |
 
 **資源：** `bountyradar://feed/latest`、`bountyradar://stats`、`bountyradar://sources`
 **提示詞：** `daily_bounty_brief`（briefing 今日最佳目標）

@@ -3,7 +3,7 @@
   "name": "bountyradar-mcp",
   "title": "BountyRadar MCP",
   "description": "Remote MCP server that aggregates AI-agent-solvable bounties across Opire, BountyHub, ClawHunt, Algora, GitHub and validated security programs, then scores each for agent-solvability, freshness and competition and serves a ranked, agent-consumable feed. Tools: get_bounty_feed, search_bounties, get_bounty_detail, score_bounty, list_sources, get_stats, subscribe_feed. Pay-per-event; initialize and tools/list are free.",
-  "version": "1.0",
+  "version": "1.1",
   "buildTag": "latest",
   "usesStandbyMode": true,
   "webServerMcpPath": "/mcp",

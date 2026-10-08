@@ -1,6 +1,6 @@
 {
   "name": "bountyradar-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server that aggregates AI-agent-solvable bounties and serves a ranked, scored, agent-consumable feed (Pay-Per-Event on Apify).",
   "type": "module",
   "bin": { "bountyradar-mcp": "src/server.mjs" },
