@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://bountyradar.example/index.html</loc><changefreq>daily</changefreq></url>
-  <url><loc>https://bountyradar.example/sources.html</loc><changefreq>daily</changefreq></url>
-  <url><loc>https://bountyradar.example/about.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://sartbot.com/bountyradar/index.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://sartbot.com/bountyradar/sources.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://sartbot.com/bountyradar/about.html</loc><changefreq>daily</changefreq></url>
 </urlset>

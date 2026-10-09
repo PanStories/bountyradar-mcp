@@ -294,7 +294,7 @@ writeFileSync(`${PUBLIC}/assets/app.js`, APP_JS);
 
 /* ---------- SEO ---------- */
 writeFileSync(`${PUBLIC}/robots.txt`, `User-agent: *\nAllow: /\nDisallow: /subscribe\nSitemap: /sitemap.xml\n`);
-const urls = ['index.html', 'sources.html', 'about.html'].map((p) => `  <url><loc>https://bountyradar.example/${p}</loc><changefreq>daily</changefreq></url>`).join('\n');
+const urls = ['index.html', 'sources.html', 'about.html'].map((p) => `  <url><loc>https://sartbot.com/bountyradar/${p}</loc><changefreq>daily</changefreq></url>`).join('\n');
 writeFileSync(`${PUBLIC}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 
 console.log(`site built: ${feed.length} feed cards, ${stats.total} bounties, ${totalSources} sources -> ${PUBLIC}`);

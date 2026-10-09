@@ -22,5 +22,6 @@
   },
   "keywords": ["mcp", "bounty", "agent", "ai", "feed", "alerting"],
   "license": "MIT",
-  "author": "PanStories"
+  "author": "PanStories",
+  "homepage": "https://sartbot.com/bountyradar/"
 }
