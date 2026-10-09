@@ -143,6 +143,10 @@ node scripts/refresh.mjs       # refresh catalog (graceful; needs APIFY_TOKEN + 
 
 MIT — see the [LICENSE](LICENSE) file. Free to use the hosted endpoint per the pricing table above.
 
+### Privacy
+
+Read-only and stateless — no accounts, no personal data collected. An optional `webhook_url` is held in memory only; optional classification may send public bounty text to a configured LLM endpoint. See [`PRIVACY.md`](PRIVACY.md).
+
 ---
 
 <a id="简体中文"></a>
