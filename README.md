@@ -1,6 +1,5 @@
 # BountyRadar MCP
 
-[![M8ven Trust Index](https://m8ven.ai/badge/mcp/panstories/bountyradar-mcp)](https://m8ven.ai/mcp/panstories/bountyradar-mcp)
 [![M8ven Score](https://m8ven.ai/badge/mcp/panstories-bountyradar-mcp-njjpan?v=cb31932dc77c9cacf18165eff9daef2a)](https://m8ven.ai/mcp/panstories-bountyradar-mcp-njjpan?s=readme)
 
 **The judgment layer for the agent-bounty economy.** BountyRadar aggregates AI-agent-solvable bounties across Opire, BountyHub, ClawHunt, Algora, GitHub, and validated security programs — then scores each for **agent-solvability, freshness, and competition** and serves a ranked, agent-consumable feed over MCP.
