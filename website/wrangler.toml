@@ -6,7 +6,7 @@ compatibility_date = "2026-01-01"
 
 [[kv_namespaces]]
 binding = "BOUNTY_SUBSCRIBERS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"   # npx wrangler kv namespace create BOUNTY_SUBSCRIBERS
+id = "3b2f6532c7524e3b87c371e36a46436d"   # created 2026-10-12; wrangler kv namespace create BOUNTY_SUBSCRIBERS
 
 # Secrets (set in dashboard, never in repo):
 #   ADMIN_KEY               — protects /subscribers CSV export

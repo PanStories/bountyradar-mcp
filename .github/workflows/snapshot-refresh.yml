@@ -1,0 +1,57 @@
+# snapshot-refresh.yml — Bounty Radar per-MCP Cloudflare Page static snapshot
+#
+# Satisfies the boss's standard for the MCP's Cloudflare page:
+#   * Static snapshot  -> website/build.mjs emits website/public/* (no per-visitor calls)
+#   * 48-hour update   -> schedule: cron '0 0 */2 * *' (every 2nd day @ 00:00 UTC = 48h)
+#   * Free             -> Cloudflare Pages free tier + GitHub Actions free minutes
+#   * No PPE           -> refresh.mjs scrapes GitHub (anonymous, free) + opt-in sources.
+#                         It NEVER calls the Apify actor / MCP endpoint, so no pay-per-event
+#                         is ever incurred by the page or its refresh.
+#
+# STATUS (2026-10-12): LIVE. Project `bountyradar-site` created; first deploy validated via
+# local oauth (site is up at bountyradar-site.pages.dev). Remaining: add repo secret
+# CLOUDFLARE_API_TOKEN (Pages:Edit scope) so the 48h cron + manual runs deploy from GitHub
+# Actions. Until that secret exists, schedule/dispatch runs will fail at the deploy step.
+#
+# NOTE on KV: website/wrangler.toml carries a BOUNTY_SUBSCRIBERS KV binding, but Pages deploy
+# ignores the config (no `pages_build_output_dir`), so the binding is NOT applied by this
+# pipeline. The static snapshot + 48h refresh work fully without it. To enable /subscribe
+# persistence: set the BOUNTY_SUBSCRIBERS binding on the project in the Cloudflare dashboard
+# (one-time), or grant the token KV permission AND add `pages_build_output_dir` to the toml.
+
+name: snapshot-refresh
+
+on:
+  schedule:
+    # Every 48 hours — 00:00 UTC on every 2nd day-of-month.
+    - cron: "0 0 */2 * *"
+  workflow_dispatch: {}   # manual trigger for testing
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Collect live data (free, anonymous — NO Apify/actor call, no PPE)
+        # scripts/refresh.mjs imports collect() from scraper/src/run.mjs (pure local logic).
+        # With no GITHUB_TOKEN it uses anonymous GitHub (60 req/hr) and skips keyed sources.
+        run: node scripts/refresh.mjs
+
+      - name: Build static snapshot (emits website/public, no network at build time)
+        env:
+          BR_INCLUDE_LIVE: "1"   # merge freshly-scraped data/live into the catalog
+        run: node website/build.mjs
+
+      - name: Deploy to Cloudflare Pages (free tier)
+        working-directory: website
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler@4 pages deploy public --project-name=bountyradar-site --commit-dirty=true
