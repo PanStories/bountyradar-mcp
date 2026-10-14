@@ -17,7 +17,7 @@
 ---
 
 <a id="english"></a>
-## English
+# English
 
 **Current version: 1.0.1**
 
@@ -150,7 +150,7 @@ Read-only and stateless — no accounts, no personal data collected. An optional
 ---
 
 <a id="简体中文"></a>
-## 简体中文
+# 简体中文
 
 **Current version: 1.0.1**
 
@@ -283,7 +283,7 @@ MIT——详见 [LICENSE](LICENSE)。按上表计费使用托管端点。
 ---
 
 <a id="繁體中文"></a>
-## 繁體中文
+# 繁體中文
 
 **Current version: 1.0.1**
 

@@ -1,0 +1,55 @@
+{
+  "slug": "bountyradar-mcp",
+  "version": "1.0.1",
+  "repo_root": "..",
+  "endpoint": "https://neeenja--bountyradar-mcp.apify.actor/mcp",
+  "apifyUser": "neeenja",
+  "apifyActorId": "QnlMLgxMxh1i7WSSF",
+  "sartbotSlug": "bountyradar-mcp",
+  "isPrivate": false,
+  "license": "MIT",
+  "tagline": {
+    "en": "Ranked, agent-solvable bounty feed — score every bounty for solvability, freshness and competition, then serve a ranked feed agents can act on.",
+    "zh": "排名制、Agent 可解的悬赏情报流——为每个悬赏打「可解性/新鲜度/竞争」分，输出 Agent 可直接行动的排序流。",
+    "zh_hant": "排名制、Agent 可解的懸賞情報流——為每個懸賞打「可解性/新鮮度/競爭」分，輸出 Agent 可直接行動的排序流。"
+  },
+  "sources": ["Opire", "BountyHub", "ClawHunt", "Algora", "GitHub", "validated security programs"],
+  "tools": [
+    {"name": "get_bounty_feed", "billable": "mcp-get-bounty-feed", "price": "$0.0005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "search_bounties", "billable": "mcp-search", "price": "$0.0010", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "get_bounty_detail", "billable": "", "price": "0", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "score_bounty", "billable": "mcp-score", "price": "$0.0005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "list_sources", "billable": "", "price": "0", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "get_stats", "billable": "mcp-stats", "price": "$0.0005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "subscribe_feed", "billable": "mcp-subscribe", "price": "$0.0005", "readOnly": false, "destructive": false, "idempotent": false, "openWorld": false}
+  ],
+  "pricing": {
+    "model": "pay-per-event",
+    "apifyFee": "20%",
+    "freeMethods": ["initialize", "tools/list", "list_sources", "get_bounty_detail"]
+  },
+  "directories": {
+    "apify": "live",
+    "glama": "live",
+    "lobehub": "live",
+    "sartbot": "live",
+    "smithery": "missing",
+    "pulsemcp": "missing",
+    "mcpservers": "unverified"
+  },
+  "autoPush": {
+    "enabled": true,
+    "targets": ["github", "apify"],
+    "requireStrictTrustGate": false,
+    "requirePreflightGreen": true,
+    "verifyLiveBeforeDone": true,
+    "priceChangesRequireBoss": true,
+    "neverAuto": ["m8ven-claim", "m8ven-connect-live", "social-post", "account-gated-submit", "price-change"]
+  },
+  "surfaces": [
+    {"id": "README", "path": "README.md", "require": ["{version}", "{endpoint}", "{tools.all}", "{prices.all}"]},
+    {"id": "CHANGELOG", "path": "CHANGELOG.md", "require": ["{version}"]},
+    {"id": "package json", "path": "package.json", "require": ["{version}"]},
+    {"id": "llms txt", "path": "llms.txt", "require": ["{endpoint}", "{tagline.en}", "{tools.all}"]}
+  ]
+}

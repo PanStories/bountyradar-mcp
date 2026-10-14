@@ -1,0 +1,21 @@
+# BountyRadar MCP
+
+Ranked, agent-solvable bounty feed — score every bounty for solvability, freshness and competition, then serve a ranked feed agents can act on.
+
+MCP endpoint (Streamable HTTP; Bearer token required):
+https://neeenja--bountyradar-mcp.apify.actor/mcp
+
+Connect (hosted, no local install — Apify Standby):
+claude mcp add bountyradar --transport http https://neeenja--bountyradar-mcp.apify.actor/mcp
+
+Tools (Pay-Per-Event; initialize and tools/list are free):
+- get_bounty_feed — ranked, agent-solvable bounty feed (billable $0.0005)
+- search_bounties — filter by source / task / min-reward (billable $0.0010)
+- get_bounty_detail — full bounty detail (free)
+- score_bounty — explainable solvability / competition / freshness score (billable $0.0005)
+- list_sources — list data sources (free)
+- get_stats — aggregate stats across sources (billable $0.0005)
+- subscribe_feed — in-memory alert subscription (billable $0.0005)
+
+Data sources: Opire, BountyHub, ClawHunt, Algora, GitHub, validated security programs.
+License: MIT. Detail + pricing: https://sartbot.com/bountyradar/
