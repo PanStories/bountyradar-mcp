@@ -1,7 +1,7 @@
 {
   "identifier": "bountyradar-mcp",
   "name": "BountyRadar MCP",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aggregates AI-agent-solvable bounties across Opire/BountyHub/ClawHunt/Algora/GitHub and serves a ranked, agent-solvability-scored feed over MCP (Pay-Per-Event).",
   "category": "developer-tools",
   "cloudEndpoint": "https://neeenja--bountyradar-mcp.apify.actor/mcp",

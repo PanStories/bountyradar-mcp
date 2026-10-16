@@ -3,7 +3,7 @@
   "name": "io.github.PanStories/bountyradar-mcp",
   "title": "BountyRadar MCP",
   "description": "Remote MCP server that aggregates AI-agent-solvable bounties across Opire, BountyHub, ClawHunt, Algora, GitHub and validated security programs, then scores each for agent-solvability, freshness and competition and serves a ranked, agent-consumable feed.",
-  "version": "1.1",
+  "version": "1.0.1",
   "websiteUrl": "https://apify.com/neeenja/bountyradar-mcp",
   "repository": {
     "url": "https://github.com/PanStories/bountyradar-mcp",
