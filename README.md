@@ -73,13 +73,13 @@ node src/server.mjs          # zero-dependency JSON-RPC 2.0 stdio server
 
 | Tool | Purpose | Price |
 |------|---------|-------|
-| `get_bounty_feed` | **The subscriber feed.** Ranked + filtered (category, min_reward, max_competition, source, freshness_min, agent_solvable_min, include_honeypot, sort). | $0.0005 |
-| `search_bounties` | Keyword + filter search across title/description/tags/repo. | $0.0010 |
+| `get_bounty_feed` | **The subscriber feed.** Ranked + filtered (category, min_reward, max_competition, source, freshness_min, agent_solvable_min, include_honeypot, sort). | $0.005 |
+| `search_bounties` | Keyword + filter search across title/description/tags/repo. | $0.005 |
 | `get_bounty_detail` | Full record + score breakdown by id. | free |
-| `score_bounty` | Raw explainable score breakdown for one bounty. | $0.0005 |
+| `score_bounty` | Raw explainable score breakdown for one bounty. | $0.005 |
 | `list_sources` | Source registry + status (live / curated / partner_candidate). | free |
-| `get_stats` | Counts by source / category / reward band. | $0.0005 |
-| `subscribe_feed` | Save a filter profile + poll descriptor (stored in server memory; webhook URL echoed, never called). | $0.0005 |
+| `get_stats` | Counts by source / category / reward band. | $0.005 |
+| `subscribe_feed` | Save a filter profile + poll descriptor (stored in server memory; webhook URL echoed, never called). | $0.005 |
 
 **Resources:** `bountyradar://feed/latest`, `bountyradar://stats`, `bountyradar://sources`
 **Prompt:** `daily_bounty_brief` — briefs an agent on today's best targets.
@@ -106,13 +106,15 @@ Bounties flagged `honeypot: true` (e.g. "reserved for interview loop") are **exc
 
 | Event | Price |
 |-------|-------|
-| `mcp-get-bounty-feed` | $0.0005 |
-| `mcp-search` | $0.0010 |
-| `mcp-score` | $0.0005 |
-| `mcp-stats` | $0.0005 |
-| `mcp-subscribe` | $0.0005 |
+| `mcp-get-bounty-feed` | $0.005 |
+| `mcp-search` | $0.005 |
+| `mcp-score` | $0.005 |
+| `mcp-stats` | $0.005 |
+| `mcp-subscribe` | $0.005 |
 
 Local / self-hosted use is free forever.
+
+> **Price update (floor correction):** all charged events raised to **$0.005** effective **2026-11-06**; the current $0.0005 / $0.0010 prices are grandfathered until then. This is a floor correction (the previous $0.0005 was 10× below the $0.005 PPE floor), not a margin play.
 
 ### Self-host / deploy (Apify, PPE)
 
@@ -210,13 +212,13 @@ node src/server.mjs          # 零依赖 JSON-RPC 2.0 stdio 服务器
 
 | 工具 | 作用 | 价格 |
 |------|------|------|
-| `get_bounty_feed` | **订阅 feed 本体。** 排序 + 过滤（类型 / 最低赏金 / 最高竞争数 / 来源 / 新鲜度 / 可解性 / 含蜜罐 / 排序方式）。 | $0.0005 |
-| `search_bounties` | 关键词 + 过滤搜索（标题/描述/标签/repo）。 | $0.0010 |
+| `get_bounty_feed` | **订阅 feed 本体。** 排序 + 过滤（类型 / 最低赏金 / 最高竞争数 / 来源 / 新鲜度 / 可解性 / 含蜜罐 / 排序方式）。 | $0.005 |
+| `search_bounties` | 关键词 + 过滤搜索（标题/描述/标签/repo）。 | $0.005 |
 | `get_bounty_detail` | 按 id 取完整记录 + 评分拆解。 | 免费 |
-| `score_bounty` | 单条可解释评分拆解。 | $0.0005 |
+| `score_bounty` | 单条可解释评分拆解。 | $0.005 |
 | `list_sources` | 来源注册表 + 状态（live / curated / partner_candidate）。 | 免费 |
-| `get_stats` | 按来源 / 类型 / 赏金档统计。 | $0.0005 |
-| `subscribe_feed` | 保存过滤档案 + 轮询描述（仅存于服务器内存；webhook URL 只回显、绝不调用）。 | $0.0005 |
+| `get_stats` | 按来源 / 类型 / 赏金档统计。 | $0.005 |
+| `subscribe_feed` | 保存过滤档案 + 轮询描述（仅存于服务器内存；webhook URL 只回显、绝不调用）。 | $0.005 |
 
 **资源：** `bountyradar://feed/latest`、`bountyradar://stats`、`bountyradar://sources`
 **提示词：** `daily_bounty_brief`（briefing 今日最佳目标）
@@ -243,13 +245,15 @@ composite      = 0.40*可解 + 0.25*新鲜 + 0.25*竞争 + 0.10*赏金
 
 | 事件 | 价格 |
 |------|------|
-| `mcp-get-bounty-feed` | $0.0005 |
-| `mcp-search` | $0.0010 |
-| `mcp-score` | $0.0005 |
-| `mcp-stats` | $0.0005 |
-| `mcp-subscribe` | $0.0005 |
+| `mcp-get-bounty-feed` | $0.005 |
+| `mcp-search` | $0.005 |
+| `mcp-score` | $0.005 |
+| `mcp-stats` | $0.005 |
+| `mcp-subscribe` | $0.005 |
 
 本地 / 自托管永久免费。
+
+> **价格更新（地板修正）：** 所有计费事件于 **2026-11-06** 起统一提至 **$0.005**；现行 $0.0005 / $0.0010 价格祖父保留至该日。这是地板修正（此前 $0.0005 低于 $0.005 地板 10 倍），非涨价牟利。
 
 ### 自托管 / 部署（Apify，PPE）
 
@@ -343,13 +347,13 @@ node src/server.mjs          # 零依賴 JSON-RPC 2.0 stdio 伺服器
 
 | 工具 | 作用 | 價格 |
 |------|------|------|
-| `get_bounty_feed` | **訂閱 feed 本體。** 排序 + 過濾（類型 / 最低賞金 / 最高競爭數 / 來源 / 新鮮度 / 可解性 / 含蜜罐 / 排序方式）。 | $0.0005 |
-| `search_bounties` | 關鍵字 + 過濾搜尋（標題/描述/標籤/repo）。 | $0.0010 |
+| `get_bounty_feed` | **訂閱 feed 本體。** 排序 + 過濾（類型 / 最低賞金 / 最高競爭數 / 來源 / 新鮮度 / 可解性 / 含蜜罐 / 排序方式）。 | $0.005 |
+| `search_bounties` | 關鍵字 + 過濾搜尋（標題/描述/標籤/repo）。 | $0.005 |
 | `get_bounty_detail` | 按 id 取完整記錄 + 評分拆解。 | 免費 |
-| `score_bounty` | 單條可解釋評分拆解。 | $0.0005 |
+| `score_bounty` | 單條可解釋評分拆解。 | $0.005 |
 | `list_sources` | 來源註冊表 + 狀態（live / curated / partner_candidate）。 | 免費 |
-| `get_stats` | 按來源 / 類型 / 賞金檔統計。 | $0.0005 |
-| `subscribe_feed` | 儲存過濾檔案 + 輪詢描述（僅存於伺服器記憶體；webhook URL 僅回顯、絕不呼叫）。 | $0.0005 |
+| `get_stats` | 按來源 / 類型 / 賞金檔統計。 | $0.005 |
+| `subscribe_feed` | 儲存過濾檔案 + 輪詢描述（僅存於伺服器記憶體；webhook URL 僅回顯、絕不呼叫）。 | $0.005 |
 
 **資源：** `bountyradar://feed/latest`、`bountyradar://stats`、`bountyradar://sources`
 **提示詞：** `daily_bounty_brief`（briefing 今日最佳目標）
@@ -376,13 +380,15 @@ composite      = 0.40*可解 + 0.25*新鮮 + 0.25*競爭 + 0.10*賞金
 
 | 事件 | 價格 |
 |------|------|
-| `mcp-get-bounty-feed` | $0.0005 |
-| `mcp-search` | $0.0010 |
-| `mcp-score` | $0.0005 |
-| `mcp-stats` | $0.0005 |
-| `mcp-subscribe` | $0.0005 |
+| `mcp-get-bounty-feed` | $0.005 |
+| `mcp-search` | $0.005 |
+| `mcp-score` | $0.005 |
+| `mcp-stats` | $0.005 |
+| `mcp-subscribe` | $0.005 |
 
 本機 / 自架永久免費。
+
+> **價格更新（地板修正）：** 所有計費事件於 **2026-11-06** 起統一提至 **$0.005**；現行 $0.0005 / $0.0010 價格祖父保留至該日。這是地板修正（此前 $0.0005 低於 $0.005 地板 10 倍），非漲價牟利。
 
 ### 自架 / 部署（Apify，PPE）
 

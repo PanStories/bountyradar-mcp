@@ -15,13 +15,13 @@
   },
   "sources": ["Opire", "BountyHub", "ClawHunt", "Algora", "GitHub", "validated security programs"],
   "tools": [
-    {"name": "get_bounty_feed", "billable": "mcp-get-bounty-feed", "price": "$0.0005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
-    {"name": "search_bounties", "billable": "mcp-search", "price": "$0.0010", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "get_bounty_feed", "billable": "mcp-get-bounty-feed", "price": "$0.005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "search_bounties", "billable": "mcp-search", "price": "$0.005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
     {"name": "get_bounty_detail", "billable": "", "price": "0", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
-    {"name": "score_bounty", "billable": "mcp-score", "price": "$0.0005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "score_bounty", "billable": "mcp-score", "price": "$0.005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
     {"name": "list_sources", "billable": "", "price": "0", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
-    {"name": "get_stats", "billable": "mcp-stats", "price": "$0.0005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
-    {"name": "subscribe_feed", "billable": "mcp-subscribe", "price": "$0.0005", "readOnly": false, "destructive": false, "idempotent": false, "openWorld": false}
+    {"name": "get_stats", "billable": "mcp-stats", "price": "$0.005", "readOnly": true, "destructive": false, "idempotent": true, "openWorld": false},
+    {"name": "subscribe_feed", "billable": "mcp-subscribe", "price": "$0.005", "readOnly": false, "destructive": false, "idempotent": false, "openWorld": false}
   ],
   "pricing": {
     "model": "pay-per-event",
