@@ -1,6 +1,6 @@
 {
   "name": "bountyradar-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "BountyRadar MCP",
   "description": "Aggregates AI-agent-solvable bounties across multiple sources and serves a ranked, agent-solvability-scored feed over MCP. Pure intelligence/alerting layer — no marketplace, no custody.",
   "type": "mcp",
